@@ -30,18 +30,18 @@
 There are 3 types of waits selenium supports.
 1. Implicit wait
     Tells the WebDriver to wait for a certain amount of time when trying to find an element if it’s not immediately available. Applies globally and set only once.
-   <code>
+   ```
    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-   </code>
+   ```
 3. Explicit wait
    Waits for a specific condition to be true before continuing (like element visible, clickable, etc).
-   <code>
+   ```
    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
    WebElement element = wait.until(
      ExpectedConditions.visibilityOfElementLocated(By.id("submit"))
    );
    element.click();
-   </code>
+   ```
 5. Fluent wait
    A more flexible form of Explicit Wait that lets you: define polling frequency, ignnore specific exceptions.
    ```
@@ -51,4 +51,62 @@ There are 3 types of waits selenium supports.
    );
    element.click();
    ```
+## 4. What’s the difference between XPath and CSS Selector?
+<table>
+  <tr>
+    <th>XPath</th>
+    <th>CSS Selector</th>
+  </tr>
+  <tr>
+    <td>XML Path Language used to locate elements and attributes in an HTML/XML document.</td>
+    <td>Uses Cascading Style Sheet syntax to find elements based on styles and structure.</td>
+  </tr>
+  <tr>
+    <td>Syntax example: ``//input[@id='username']``</td>
+    <td>Syntax example: ``input[id='username']``</td>
+  </tr>
+  <tr>
+    <td>Can navigate both downward and upward in the DOM tree (parent, child, ancestor, descendant).</td>
+    <td>Can navigate only downward in the DOM (parent → child or descendant).</td>
+  </tr>
+  <tr>
+    <td>Syntax can be longer and more complex,</td>
+    <td>Syntax is shorter and cleaner</td>
+  </tr>
+  <tr>
+    <td>Works well for dynamic and complex elements</td>
+    <td>Works best for static and straightforward element locators</td>
+  </tr>
+  <tr>
+    <td>Supports searching by visible text using text() (e.g., ``//button[text()='Login'])``.</td>
+    <td>Does not support locating elements by text content.</td>
+  </tr>
+  <tr>
+    <td>Allows combining multiple conditions with logical operators like and, or.</td>
+    <td>Combines multiple attributes directly (e.g., ``input[type='text'][name='email'])``.</td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
