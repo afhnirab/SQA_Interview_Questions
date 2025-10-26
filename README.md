@@ -30,19 +30,25 @@
 There are 3 types of waits selenium supports.
 1. Implicit wait
     Tells the WebDriver to wait for a certain amount of time when trying to find an element if it’s not immediately available. Applies globally and set only once.
-   ``Tells the WebDriver to wait for a certain amount of time when trying to find an element if it’s not immediately available.``
+   <code>
+   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+   </code>
 3. Explicit wait
    Waits for a specific condition to be true before continuing (like element visible, clickable, etc).
-   ``WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    WebElement element = wait.until(
-      ExpectedConditions.visibilityOfElementLocated(By.id("submit"))
-    );
-    element.click();``
+   <code>
+   WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+   WebElement element = wait.until(
+     ExpectedConditions.visibilityOfElementLocated(By.id("submit"))
+   );
+   element.click();
+   </code>
 5. Fluent wait
    A more flexible form of Explicit Wait that lets you: define polling frequency, ignnore specific exceptions.
-   ``Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(20)).pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
-     WebElement element = wait.until(
-       driver -> driver.findElement(By.id("dynamicButton"))
+   <code>
+   Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(20)).pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
+   WebElement element = wait.until(
+     driver -> driver.findElement(By.id("dynamicButton"))
    );
-   element.click();``
+   element.click();
+   </code>
 
