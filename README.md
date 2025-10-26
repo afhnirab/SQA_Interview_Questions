@@ -62,8 +62,8 @@ There are 3 types of waits selenium supports.
     <td>Uses Cascading Style Sheet syntax to find elements based on styles and structure.</td>
   </tr>
   <tr>
-    <td>Syntax example: ``//input[@id='username']``</td>
-    <td>Syntax example: ``input[id='username']``</td>
+    <td>Syntax example: <code>//input[@id='username']</code></td>
+    <td>Syntax example: <code>input[id='username']</code></td>
   </tr>
   <tr>
     <td>Can navigate both downward and upward in the DOM tree (parent, child, ancestor, descendant).</td>
@@ -78,12 +78,12 @@ There are 3 types of waits selenium supports.
     <td>Works best for static and straightforward element locators</td>
   </tr>
   <tr>
-    <td>Supports searching by visible text using text() (e.g., ``//button[text()='Login'])``.</td>
+    <td>Supports searching by visible text using text() (e.g., <code>//button[text()='Login'])</code>.</td>
     <td>Does not support locating elements by text content.</td>
   </tr>
   <tr>
     <td>Allows combining multiple conditions with logical operators like and, or.</td>
-    <td>Combines multiple attributes directly (e.g., ``input[type='text'][name='email'])``.</td>
+    <td>Combines multiple attributes directly (e.g., <code>input[type='text'][name='email'])</code>.</td>
   </tr>
 </table>
 
