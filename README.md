@@ -87,6 +87,43 @@ There are 3 types of waits selenium supports.
   </tr>
 </table>
 
+## How do you handle exceptions in Selenium scripts?
+Selenium scripts can fail due to various reasons such as:
+  1. Element not found (NoSuchElementException)
+  2. Element not interactable (ElementNotInteractableException)
+  3. Page not loaded completely (TimeoutException)
+  4. Stale DOM (StaleElementReferenceException)
+
+1. Using Try-Catch blocks the exceptions can be handled.
+```
+try {
+  WebElement element = driver.findElement(By.id("username"));
+  element.sendKeys("testuser");
+} catch (NoSuchElementException e) {
+  System.out.println("Element not found: " + e.getMessage());
+}
+```
+2. Java allows catching multiple exceptions in a single catch block using <code>|</code>.
+```
+try {
+  driver.findElement(By.id("submit")).click();
+} catch (NoSuchElementException | ElementNotInteractableException e) {
+  System.out.println("Exception occurred: " + e.getMessage());
+}
+```
+
+3. Using finally block. The finally block executes always, whether an exception occurs or not.
+```
+try {
+    driver.findElement(By.id("username")).sendKeys("testuser");
+} catch (NoSuchElementException e) {
+    System.out.println("Element not found");
+} finally {
+    System.out.println("Execution completed, closing driver");
+    driver.quit();
+}
+```
+
 
 
 
