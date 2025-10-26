@@ -44,11 +44,11 @@ There are 3 types of waits selenium supports.
    </code>
 5. Fluent wait
    A more flexible form of Explicit Wait that lets you: define polling frequency, ignnore specific exceptions.
-   <code>
+   ```
    Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(20)).pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
    WebElement element = wait.until(
      driver -> driver.findElement(By.id("dynamicButton"))
    );
    element.click();
-   </code>
+   ```
 
